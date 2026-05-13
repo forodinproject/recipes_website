@@ -1,0 +1,106 @@
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+*:not(dialog) {
+    margin: 0;
+}
+
+/* 3. Prevent mobile font inflation & system theming (Andy/Coyier) */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
+    color-scheme: light dark;
+    /* Coyier's typography polish (Andy: "love, love, love these") */
+    hanging-punctuation: first allow-end last;
+    tab-size: 2;
+}
+
+/* 4. Enable keyword animations (Andy: motion-safe wrapper) */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        interpolate-size: allow-keywords;
+    }
+}
+
+body {
+    /* 5. Increase line-height & improve text rendering */
+    min-height: 100dvh;
+    /* Accurate mobile viewport */
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 6. Improve media defaults (Andy: logical properties for RTL) */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-inline-size: 100%;
+}
+
+/* 7. Inherit fonts for form controls (Andy: split shorthand + :where() for 0 specificity) */
+:where(input, button, textarea, select) {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+/* Coyier: native auto-resize textareas. Andy: context-dependent, kept minimal */
+:where(textarea) {
+    field-sizing: content;
+    min-block-size: 10em;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping (Coyier's signature, fully endorsed by Andy) */
+p {
+    text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-wrap: balance;
+}
+
+/* 10. Accessible navigation & focus states (Andy/Coyier overlap) */
+:target {
+    scroll-margin-block: 5ex;
+}
+
+:focus-visible {
+    outline-offset: 2px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* 11. Create a root stacking context (Josh + Vue/Svelte) */
+#root,
+#__next,
+#app {
+    isolation: isolate;
+}
