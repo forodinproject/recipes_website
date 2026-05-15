@@ -1,0 +1,41 @@
+body {
+    background-color: #faf8f5;
+    color: #2b2b2b;
+    width: 800px;
+    margin: 0 auto;
+}
+
+
+nav,
+h1,
+li {
+    padding: 5px;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ol,
+ul {
+    list-style-type: none;
+    /* Removes bullets/numbers */
+    padding: 0;
+    /* Removes default internal indentation */
+    margin: 0;
+    /* Removes default external spacing */
+}
+
+.recipes_index {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.recipes_index li {
+    margin: 0 10px 0 0;
+    background-color: antiquewhite;
+    border: 2px grey solid;
+}
